@@ -5,20 +5,11 @@ public class Main
     public static void main(String[] args)
     {
         System.out.println("Hello world!");
-        Scanner scanner = new Scanner(System.in);
+        System.out.println("Press \"ENTER\" to exit this program...");
         try {
-            while (true) {
-                System.out.println("Please input a line");
-                long then = System.currentTimeMillis();
-                String line = scanner.nextLine();
-                long now = System.currentTimeMillis();
-                System.out.printf("Waited %.3fs for user input%n", (now - then) / 1000d);
-                System.out.printf("User input was: %s%n", line);
-            }
-        } catch(IllegalStateException | NoSuchElementException e) {
-            // System.in has been closed
-            System.out.println("System.in was closed; exiting");
+            int read = System.in.read(new byte[2]);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
     }
-}
